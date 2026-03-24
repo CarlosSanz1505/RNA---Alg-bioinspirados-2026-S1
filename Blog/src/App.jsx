@@ -9,37 +9,56 @@ import remarkMath from "remark-math";
 const posts = [
   {
     slug: "mi-primer-post-markdown",
-    title: "Mi primer post en Markdown",
+    title: "Trabajo 1 - Optimización Heurística",
     description:
-      "Un post de ejemplo con tablas, bloques de código y matemáticas inline y en bloque.",
+      `
+Optimización numérica de funciones de benchmarking.
+      `,
     coverText: "MD",
-    markdown: `# Mi primer post en Markdown
+    markdown: `
+# Punto 1
 
-Este post se renderiza con **React Markdown**.
+## Descenso del Gradiente
 
-Podemos mostrar matemáticas inline como $E = mc^2$ y también en bloque:
+En la primera versión funcional del código se define una posición inicial
+($\\mathbf{x}_0$) aleatoria en la región $[-5,5]^2$, una tasa de aprendizaje
+$\\eta$ de 0.001 y un máximo de 10 iteraciones ($M$). Se observó que en la
+mayoría de los puntos iniciales generados, el gradiente era demasiado grande,
+ocasionando que los cambios de posición sean muy agresivos y el algoritmo
+explote, pues cada iteración trasladaba el punto al lado opuesto en el eje x a
+mayor distancia del origen, obteniendo una inclinación aún más fuerte en el
+gradiente evaluado, repitiendo así el ciclo hasta que NumPy se vuelve incapaz
+de continuar los cálculos.
 
-$$
-\\int_{0}^{1} x^2\\,dx = \\frac{1}{3}
-$$
-
-## Bloques de código
-
-\`\`\`js
-function saludar(nombre) {
-  return \`Hola, \${nombre}\`;
-}
-
-console.log(saludar("Carlos"));
+\`\`\`
+Posición Inicial: [-4.24089429 -0.56892962]
+Iteración 1
+    gradient=array([-31484.89614165,  -3710.82279247])
+    change=array([31.48489614,  3.71082279])
+    position=array([27.24400186,  3.14189317])
+Iteración 2
+    gradient=array([8054401.02062413, -147818.7487885 ])
+    change=array([-8054.40102062,   147.81874879])
+    position=array([-8027.15701877,   150.96064196])
+Iteración 3
+    gradient=array([-2.06892262e+14, -1.28870198e+10])
+    change=array([2.06892262e+11, 1.28870198e+07])
+    position=array([2.06892254e+11, 1.28871707e+07])
+...
+Posición Final: [nan nan]
 \`\`\`
 
-También soporta tablas:
+Así que probamos reducir la tasa de aprendizaje a la vez que incrementamos el
+máximo de iteraciones. Con ayuda de una animación auxiliar que demuestra el
+proceso de optimización sobre un gráfico de curvas de nivel, observamos el
+comportamiento del algoritmo con $M = 1000$, $\\eta = 0.0001$, el cual es mucho
+más estable, pero con la desventaja de que el algoritmo puede llegar
+rápidamente a la región del valle de la función, que es extremadamente plana, y
+de ahí converger muy lentamente hacia el verdadero mínimo. Como resultado, el
+algoritmo puede obtener valores finales de la función objetivo relativamente
+cercanos al mínimo global, pero en puntos alejados del argumento óptimo.
 
-| Tema | Estado |
-|---|---|
-| Markdown | OK |
-| Código | OK |
-| Matemáticas | OK |
+...
 `
   }
 ];
@@ -76,14 +95,13 @@ function Header() {
         elaboradas para los trabajos planteados en el curso de <b>Redes
         Neuronales y Algoritmos Bioinspirados</b> en el período 2026-S1.
       </p>
-      <p>Los trabajos aquí presentados han sido creados por:
-        <ul>
-          <li>Carlos Andres Sanchez Ortega</li>
-          <li>Carlos Daniel Urresty Ascuntar</li>
-          <li>Jhojan Esteban Jimenez Jaramillo</li>
-          <li>Juan Manuel Teheran Machado</li>
-        </ul>
-      </p>
+      <p>Los trabajos aquí presentados han sido creados por:</p>
+      <ul>
+        <li>Carlos Andres Sanchez Ortega</li>
+        <li>Carlos Daniel Urresty Ascuntar</li>
+        <li>Jhojan Esteban Jimenez Jaramillo</li>
+        <li>Juan Manuel Teheran Machado</li>
+      </ul>
     </header>
   );
 }
@@ -143,9 +161,11 @@ function PostPage() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/posts/:slug" element={<PostPage />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/posts/:slug" element={<PostPage />} />
+      </Routes>
+    </>
   );
 }
