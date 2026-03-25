@@ -84,6 +84,8 @@ cercanos al mínimo global, pero en puntos alejados del argumento óptimo.
   Tu navegador no soporta video HTML5.
 </video>
 
+## [Video Contribuciones](https://youtube.com/shorts/LmZys56PSS8?si=_3LuLG_oOhX-ANQx)
+
 ## Referencias
 
 Ospina, J., & Zapata, A. (2026). *Introducción al método de descenso por
