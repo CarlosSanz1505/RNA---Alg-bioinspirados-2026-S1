@@ -3,6 +3,7 @@ import { Link, Navigate, Route, Routes, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKatex from "rehype-katex";
+import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
@@ -71,9 +72,17 @@ cercanos al mínimo global, pero en puntos alejados del argumento óptimo.
 
 ...
 
+<video controls width="100%">
+  <source src="/RNA---Alg-bioinspirados-2026-S1/rosen_2d_grad.mp4" type="video/mp4" />
+  Tu navegador no soporta video HTML5.
+</video>
+
 ## Enjambres de Partículas
 
-...
+<video controls width="100%">
+  <source src="/RNA---Alg-bioinspirados-2026-S1/pso.mp4" type="video/mp4" />
+  Tu navegador no soporta video HTML5.
+</video>
 
 ## Referencias
 
@@ -171,7 +180,7 @@ function PostPage() {
       <article className="post">
         <ReactMarkdown
           remarkPlugins={[remarkGfm, remarkMath]}
-          rehypePlugins={[rehypeKatex, rehypeHighlight]}
+          rehypePlugins={[rehypeRaw, rehypeKatex, rehypeHighlight]}
         >
           {post.markdown}
         </ReactMarkdown>
