@@ -14,7 +14,7 @@ Para testear el blog localmente, ejecutar los siguientes comandos y dirigirse a
 `http://localhost:5173/`:
 
 ```
-cd Blog/
+cd blog/
 npm install
 npm run dev
 ```

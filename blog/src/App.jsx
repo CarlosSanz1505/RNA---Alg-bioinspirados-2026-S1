@@ -59,7 +59,7 @@ algoritmo puede obtener valores finales de la función objetivo relativamente
 cercanos al mínimo global, pero en puntos alejados del argumento óptimo.
 
 ...
-`
+`,
   }
 ];
 
@@ -161,11 +161,9 @@ function PostPage() {
 
 export default function App() {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/posts/:slug" element={<PostPage />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/posts/:slug" element={<PostPage />} />
+    </Routes>
   );
 }
