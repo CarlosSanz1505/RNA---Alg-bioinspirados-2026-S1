@@ -16,18 +16,29 @@ Optimización numérica de funciones de benchmarking.
       `,
     coverText: "MD",
     markdown: `
-# Punto 1
+# Trabajo 01 - Optimización Heurística
+
+Para el componente de optimización numérica, elegimos la función de Rosenbrock
+y la de Schwefel. A continuación se da una descripción general del proceso de
+desarrollo de los algoritmos de optimización para estas funciones usando
+gradiente descendiente y otros métodos heurísticos. Dichas implementaciones se
+encuentran en nuestro [repositorio en GitHub](https://github.com/CarlosSanz1505\
+/RNA---Alg-bioinspirados-2026-S1.git), el cual incluye indicaciones para
+ejecutar los *Jupyter Notebooks* correspondientes por medio de un entorno
+virtual de Python.
 
 ## Descenso del Gradiente
 
-En la primera versión funcional del código se define una posición inicial
+Se desarrolló una versión inicial de un notebook para la implementación de este
+algoritmo basada en las diapositivas de este tema en el curso (Ospina & Zapata,
+2026). En esta versión del código se define una posición inicial
 ($\\mathbf{x}_0$) aleatoria en la región $[-5,5]^2$, una tasa de aprendizaje
 $\\eta$ de 0.001 y un máximo de 10 iteraciones ($M$). Se observó que en la
-mayoría de los puntos iniciales generados, el gradiente era demasiado grande,
+mayoría de los puntos iniciales generados el gradiente era demasiado grande,
 ocasionando que los cambios de posición sean muy agresivos y el algoritmo
-explote, pues cada iteración trasladaba el punto al lado opuesto en el eje x a
+explote, pues cada iteración trasladaba el punto al lado opuesto en el eje $x$ a
 mayor distancia del origen, obteniendo una inclinación aún más fuerte en el
-gradiente evaluado, repitiendo así el ciclo hasta que NumPy se vuelve incapaz
+gradiente evaluado, repitiendo así el ciclo hasta que *NumPy* se vuelve incapaz
 de continuar los cálculos.
 
 \`\`\`
@@ -59,6 +70,16 @@ algoritmo puede obtener valores finales de la función objetivo relativamente
 cercanos al mínimo global, pero en puntos alejados del argumento óptimo.
 
 ...
+
+## Enjambres de Partículas
+
+...
+
+## Referencias
+
+Ospina, J., & Zapata, A. (2026). *Introducción al método de descenso por
+gradiente para optimización* [Diapositivas]. Curso Redes Neuronales y Algoritmos
+Bioinspirados, Universidad Nacional de Colombia.
 `,
   }
 ];
